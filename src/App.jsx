@@ -1,7 +1,11 @@
+import { Body } from "./Body";
+
 function App() {
   return (
     <>
-      <h1 className="text-blue-600">hello new world</h1>
+      <div className="grid place-content-center min-h-screen mx-auto max-w-3xl lg:max-6xl bg-green-500">
+        <Body />
+      </div>
     </>
   );
 }
