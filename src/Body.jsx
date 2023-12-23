@@ -1,68 +1,61 @@
-import location from "./assets/images/icon-location.svg";
-import company from "./assets/images/icon-company.svg";
-import twitter from "./assets/images/icon-twitter.svg";
-import website from "./assets/images/icon-website.svg";
+import { useEffect, useState } from "react";
+import { Content } from "./Content";
+import { Search } from "./Search";
 
 export function Body() {
+  const [userObject, setuserObject] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  //const [inputState, setState] = useState(false)
+  const [stateValue, setStateValue] = useState("david");
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //  setState(true)
+    setStateValue(inputValue);
+  };
+
+  const fetch_url = "https://api.github.com/users/" + stateValue;
+
+  const fetchApiData = () => {
+    fetch(fetch_url)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        // console.log(data);
+        setuserObject(data);
+      });
+  };
+
+  useEffect(fetchApiData);
   return (
     <>
+      <Search
+        value={inputValue}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
       <main>
         <section>
-          <div className="grid grid-cols-[70px,1fr] md:grid-cols-[120px,1fr]  lg:grid-cols-[120px,1fr,1fr] items-start gap-x-8">
-            <img
-              src="https://avatars.githubusercontent.com/u/583231?v=4"
-              className="rounded-[50%] w-full"
-            />
-            <div className="">
-              <h4 className="">Heading</h4>
-              <a>link</a>
-            </div>
-            <div className="col-start-2 -mt-5 lg:col-start-3 lg:mt-0 lg:ml-10">
-              <p>date joined</p>
-            </div>
-
-            <div className="col-span-full mt-5 lg:col-start-2 lg:-mt-10">
-              <p>thi is a bio</p>
-            </div>
-
-            <div className="grid col-span-full lg:col-start-2 mt-10 md:">
-              <div className="flex justify-around gap-x-5">
-                <div className="flex flex-col gap-y-3">
-                  <h5>repos</h5>
-                  <p>88</p>
-                </div>
-                <div className="flex flex-col gap-y-3">
-                  <h5>followers</h5>
-                  <p>123</p>
-                </div>
-                <div className="flex flex-col gap-y-3">
-                  <h5>following</h5>
-                  <p>12345</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid col-span-full lg:col-start-2 mt-5">
-              <div className="grid  md:grid-cols-[repeat(2,1fr)] gap-x-8 gap-y-4">
-                <div className="flex gap-x-4">
-                  <img src={location} />
-                  <p>sanfrancisco</p>
-                </div>
-                <div className="flex gap-x-4">
-                  <img src={twitter} />
-                  <p>Not available</p>
-                </div>
-                <div className="flex gap-x-4">
-                  <img src={website} />
-                  <p>github.com./user</p>
-                </div>
-                <div className="flex gap-x-4">
-                  <img src={company} />
-                  <p>Not available</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Content
+            avatar={userObject.avatar_url}
+            name={userObject.login}
+            email={userObject.email}
+            created={userObject.created_at}
+            bio={userObject.bio}
+            repos={userObject.public_repos}
+            followers={userObject.followers}
+            following={userObject.following}
+            location={userObject.location}
+            twitter={userObject.twitter_username}
+            blog={userObject.blog}
+            company={userObject.company}
+          />
         </section>
       </main>
     </>
