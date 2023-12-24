@@ -5,7 +5,7 @@ import { Search } from "./Search";
 export function Body() {
   const [userObject, setuserObject] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  //const [inputState, setState] = useState(false)
+
   const [stateValue, setStateValue] = useState("david");
 
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ export function Body() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //  setState(true)
+
     setStateValue(inputValue);
   };
 
@@ -27,12 +27,14 @@ export function Body() {
         return res.json();
       })
       .then((data) => {
-        // console.log(data);
         setuserObject(data);
       });
   };
-
   useEffect(fetchApiData);
+  let date = new Date(userObject.created_at);
+  let dateMDY = `${date.getDate()}-${
+    date.getMonth() + 1
+  }-${date.getFullYear()}`;
   return (
     <>
       <Search
@@ -46,7 +48,7 @@ export function Body() {
             avatar={userObject.avatar_url}
             name={userObject.login}
             email={userObject.email}
-            created={userObject.created_at}
+            created={dateMDY}
             bio={userObject.bio}
             repos={userObject.public_repos}
             followers={userObject.followers}

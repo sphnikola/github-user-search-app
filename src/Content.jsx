@@ -13,7 +13,7 @@ export function Content(props) {
           <a>{props.email}</a>
         </div>
         <div className="col-start-2 -mt-5 lg:col-start-3 lg:mt-0 lg:ml-10">
-          <p>{props.created}</p>
+          <p>Joined {props.created}</p>
         </div>
 
         <div className="col-span-full mt-5 lg:col-start-2 lg:-mt-10">

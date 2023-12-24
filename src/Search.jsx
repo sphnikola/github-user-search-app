@@ -3,7 +3,7 @@ import searchIcon from "./assets/images/icon-search.svg";
 export function Search(props) {
   return (
     <>
-      <div className=" py-[0.6] pr-[0.6rem] mb-8">
+      <div className=" py-[0.6] pr-[0.6rem] mb-8 mt-5">
         <form
           onSubmit={props.onSubmit}
           className="grid grid-cols-[auto,1fr,auto] items-center"
