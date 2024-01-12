@@ -9,32 +9,53 @@ export function Content(props) {
       <div className="grid grid-cols-[70px,1fr] md:grid-cols-[120px,1fr]  lg:grid-cols-[120px,1fr,1fr] items-start gap-x-8">
         <img src={props.avatar} className="rounded-[50%] w-full" />
         <div>
-          <h4 className="">{props.name}</h4>
-          <a href={props.href} className=" text-blue-400">
+          <h2 className="text-[#222731] text-[1.2em] leading-[1.8em] md:text-[1.7em] md:leading-[1em] ">
+            {props.name}
+          </h2>
+          <a
+            href={props.href}
+            className=" text-[#0079ff] text-[13px] leading-[25px] "
+          >
             @{props.login}
           </a>
         </div>
         <div className="col-start-2 -mt-5 lg:col-start-3 lg:mt-0 lg:ml-10">
-          <p>Joined {props.created}</p>
+          <p className="text-[#697c9a] text-[13px] leading-[25px]">
+            Joined {props.created}
+          </p>
         </div>
 
         <div className="col-span-full mt-5 lg:col-start-2 lg:-mt-10">
-          <p>{props.bio}</p>
+          <p className="text-[13px] leading-[25px] md:text-[15px]">
+            {props.bio}
+          </p>
         </div>
 
         <div className="grid col-span-full lg:col-start-2 mt-10 md:">
           <div className="flex justify-around gap-x-5">
             <div className="flex flex-col gap-y-3">
-              <h5>repos</h5>
-              <p>{props.repos}</p>
+              <h5 className="text-[0.9em] leading-[1.2em] text-[#4b6a9b]">
+                repos
+              </h5>
+              <p className="text-[1.2em] leading-[1.9em] font-extrabold">
+                {props.repos}
+              </p>
             </div>
             <div className="flex flex-col gap-y-3">
-              <h5>followers</h5>
-              <p>{props.followers}</p>
+              <h5 className="text-[0.9em] leading-[1.2em] text-[#4b6a9b]">
+                followers
+              </h5>
+              <p className="text-[1.2em] leading-[1.9em] font-extrabold">
+                {props.followers}
+              </p>
             </div>
             <div className="flex flex-col gap-y-3">
-              <h5>following</h5>
-              <p>{props.following}</p>
+              <h5 className="text-[0.9em] leading-[1.2em] text-[#4b6a9b]">
+                following
+              </h5>
+              <p className="text-[1.2em] leading-[1.9em] font-extrabold">
+                {props.following}
+              </p>
             </div>
           </div>
         </div>
@@ -43,19 +64,27 @@ export function Content(props) {
           <div className="grid  md:grid-cols-[repeat(2,1fr)] gap-x-8 gap-y-4">
             <div className="flex gap-x-4">
               <img src={location} />
-              <p>{props.location}</p>
+              <p className="text-[13px] leading-[25px] md:text-[15px] ml-[20px]">
+                {props.location}
+              </p>
             </div>
             <div className="flex gap-x-4">
               <img src={twitter} />
-              <p>{props.twitter}</p>
+              <p className="text-[13px] leading-[25px] md:text-[15px] ml-[20px]">
+                {props.twitter}
+              </p>
             </div>
             <div className="flex gap-x-4">
               <img src={website} />
-              <p>{props.blog}</p>
+              <p className="text-[13px] leading-[25px] md:text-[15px] ml-[20px]">
+                {props.blog}
+              </p>
             </div>
             <div className="flex gap-x-4">
               <img src={company} />
-              <p>{props.company}</p>
+              <p className="text-[13px] leading-[25px] md:text-[15px] ml-[20px]">
+                {props.company}
+              </p>
             </div>
           </div>
         </div>

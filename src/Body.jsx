@@ -56,10 +56,20 @@ export function Body() {
             repos={userObject.public_repos}
             followers={userObject.followers}
             following={userObject.following}
-            location={userObject.location}
-            twitter={userObject.twitter_username}
-            blog={userObject.blog}
-            company={userObject.company}
+            location={
+              userObject.location === null
+                ? "Not Available"
+                : userObject.location
+            }
+            twitter={
+              userObject.twitter_username === null
+                ? "Not Available"
+                : userObject.twitter_username
+            }
+            blog={userObject.blog === null ? "Not Available" : userObject.blog}
+            company={
+              userObject.company === null ? "Not Available" : userObject.company
+            }
           />
         </section>
       </main>
