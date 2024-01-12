@@ -10,7 +10,9 @@ export function Content(props) {
         <img src={props.avatar} className="rounded-[50%] w-full" />
         <div>
           <h4 className="">{props.name}</h4>
-          <a>{props.email}</a>
+          <a href={props.href} className=" text-blue-400">
+            @{props.login}
+          </a>
         </div>
         <div className="col-start-2 -mt-5 lg:col-start-3 lg:mt-0 lg:ml-10">
           <p>Joined {props.created}</p>

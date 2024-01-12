@@ -46,10 +46,13 @@ export function Body() {
         <section>
           <Content
             avatar={userObject.avatar_url}
-            name={userObject.login}
-            email={userObject.email}
+            name={userObject.name}
+            login={userObject.login}
+            href={userObject.html_url}
             created={dateMDY}
-            bio={userObject.bio}
+            bio={
+              userObject.bio === null ? "This user has no bio" : userObject.bio
+            }
             repos={userObject.public_repos}
             followers={userObject.followers}
             following={userObject.following}
