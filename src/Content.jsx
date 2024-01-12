@@ -6,7 +6,7 @@ import website from "./assets/images/icon-website.svg";
 export function Content(props) {
   return (
     <>
-      <div className="grid grid-cols-[70px,1fr] md:grid-cols-[120px,1fr]  lg:grid-cols-[120px,1fr,1fr] items-start gap-x-8">
+      <div className="rounded-xl py-5 md:py-8 px-3 grid grid-cols-[70px,1fr] md:grid-cols-[120px,1fr]  lg:grid-cols-[120px,1fr,1fr] items-start gap-x-8 bg-white">
         <img src={props.avatar} className="rounded-[50%] w-full" />
         <div>
           <h2 className="text-[#222731] text-[1.2em] leading-[1.8em] md:text-[1.7em] md:leading-[1em] ">
@@ -31,7 +31,7 @@ export function Content(props) {
           </p>
         </div>
 
-        <div className="grid col-span-full lg:col-start-2 mt-10 md:">
+        <div className="grid col-span-full lg:col-start-2 mt-10 bg-[#f6f8ff] md:">
           <div className="flex justify-around gap-x-5">
             <div className="flex flex-col gap-y-3">
               <h5 className="text-[0.9em] leading-[1.2em] text-[#4b6a9b]">
