@@ -30,7 +30,12 @@ export function Body() {
         setuserObject(data);
       });
   };
-  useEffect(fetchApiData);
+
+  useEffect(() => {
+    fetchApiData();
+  });
+
+  // useEffect(fetchApiData);
   let date = new Date(userObject.created_at);
   let dateMDY = `${date.getDate()}-${
     date.getMonth() + 1
